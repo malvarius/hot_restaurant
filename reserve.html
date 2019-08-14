@@ -7,12 +7,22 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
-        <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
     <title>Reservation Page</title>
 </head>
 
 <body>
     <div class="container">
+        <div class="jumbotron">
+            <h1 class="display-4">Hot Restaurant</h1>
+            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
+                to featured content or information.</p>
+            <hr class="my-4">
+            <a class="btn btn-primary btn-lg" href="/tables" role="button">View Tables</a><a
+                class="btn btn-primary btn-lg" href="/home" role="button">Home</a>
+        </div>
+
+
         <div class="row">
             <form>
                 <div class="form-row">
@@ -20,15 +30,18 @@
                         <input type="text" id="form-name" class="form-control reserve-form-field" placeholder="Name" />
                     </div>
                     <div class="col-md-6">
-                        <input type="text" id="form-phone" class="form-control reserve-form-field" placeholder="Phone" />
+                        <input type="text" id="form-phone" class="form-control reserve-form-field"
+                            placeholder="Phone" />
                     </div>
                 </div>
                 <div class="form-row">
                     <div class="col-md-6">
-                        <input type="email" id="form-email" class="form-control reserve-form-field" placeholder="Email" />
+                        <input type="email" id="form-email" class="form-control reserve-form-field"
+                            placeholder="Email" />
                     </div>
                     <div class="col-md-6">
-                        <input type="text" id="form-unique-id" class="form-control reserve-form-field" placeholder="Unique ID" />
+                        <input type="text" id="form-unique-id" class="form-control reserve-form-field"
+                            placeholder="Unique ID" />
                     </div>
                 </div>
             </form>
@@ -42,4 +55,5 @@
     </div>
 </body>
 <script src="./server.js"></script>
+
 </html>
