@@ -8,6 +8,10 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
     <title>Reservation Page</title>
 </head>
 
@@ -55,5 +59,27 @@
     </div>
 </body>
 <script src="./server.js"></script>
+<script>
+$('#form-submit').on('click',function(){
+var name1 = $('#form-name').val()
+var phone1 = $('#form-phone').val()
+var email1 = $('#form-email').val()
+var uniqueId1 = $('#form-unique-id').val()
+
+var currentReservation = {
+    name : name1,
+    phoneNumber:phone1,
+    email:email1,
+    uniqueId:uniqueId1
+}
+
+$.post("/api/tables",currentReservation)
+.then(function(data) {
+        console.log('Reservation Made');
+        });
+});
+
+
+</script>
 
 </html>

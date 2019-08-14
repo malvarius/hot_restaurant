@@ -11,9 +11,14 @@
       crossorigin="anonymous"
     />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.js"
+  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+  crossorigin="anonymous"></script>
     <title>Document</title>
   </head>
   <body>
+    <div class="container">
       <div class="jumbotron">
           <h1 class="display-4">Hot Restaurant</h1>
           <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
@@ -22,7 +27,40 @@
           <a class="btn btn-primary btn-lg" href="/reserve" role="button">Make Reservation</a><a
               class="btn btn-primary btn-lg" href="/home" role="button">Home</a>
       </div>
+      <div class="row" id="showTables">
+        <h1>Tables Booked</h1>
+      </div>
+      <div class="row" id="showWaitlist">
+        <h1>Waitlist</h1>
+      </div>
+    </div>
 
   </body>
+  <script>
+    $.get("/api/tables")
+    .then(function(data){
+      for (var i=0;i<data.length;i++){
+        $("#showTables").append(`<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${data[i].name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${data[i].phoneNumber}</h6>
+    <a href="#" class="card-link">${data[i].email}</a>
+  </div>
+</div>`)
+      }
+    });
+    $.get("/api/waitlist")
+    .then(function(data){
+      for (var i=0;i<data.length;i++){
+        $("#showWaitlist").append(`<div class="card" style="width: 18rem;">
+  <div class="card-body">
+    <h5 class="card-title">${data[i].name}</h5>
+    <h6 class="card-subtitle mb-2 text-muted">${data[i].phoneNumber}</h6>
+    <a href="#" class="card-link">${data[i].email}</a>
+  </div>
+</div>`)
+      }
+    });
+  </script>
   <script src="./server.js"></script>
 </html>

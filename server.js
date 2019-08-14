@@ -7,6 +7,7 @@ var PORT = process.env.PORT||3000||8080;
 
 // variables for holding reservations
 
+var waitlist = [];
 var reservations = [
   {
     name: 'Bob Ross',
@@ -35,13 +36,28 @@ app.use(express.json());
 app.get("/", function(req, res) {
   res.sendFile(path.join(__dirname, "home.html"));
 });
+app.get("/home", function(req, res) {
+  res.sendFile(path.join(__dirname, "home.html"));
+});
 app.get("/tables", function(req, res) {
   res.sendFile(path.join(__dirname, "tables.html"));
 });
 app.get("/reserve", function(req, res) {
   res.sendFile(path.join(__dirname, "reserve.html"));
 });
-
+app.get("/api/tables", function(req, res) {
+  return res.json(reservations);
+});
+app.get("/api/waitlist", function(req, res) {
+  return res.json(waitlist);
+});
+app.post("/api/tables",function(req,res){
+  if (reservations.length<5){
+  reservations.push(req.body);
+  }else{
+    waitlist.push(req.body);
+  }
+})
 
 
 
