@@ -21,17 +21,17 @@
     <div class="container">
       <div class="jumbotron">
           <h1 class="display-4">Hot Restaurant</h1>
-          <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-              to featured content or information.</p>
+          <p class="lead">
+              </p>
           <hr class="my-4">
           <a class="btn btn-primary btn-lg" href="/reserve" role="button">Make Reservation</a><a
               class="btn btn-primary btn-lg" href="/home" role="button">Home</a>
       </div>
+      <h1>Tables Booked</h1>
       <div class="row" id="showTables">
-        <h1>Tables Booked</h1>
       </div>
+      <h1>Waitlist</h1>
       <div class="row" id="showWaitlist">
-        <h1>Waitlist</h1>
       </div>
     </div>
 
@@ -40,7 +40,7 @@
     $.get("/api/tables")
     .then(function(data){
       for (var i=0;i<data.length;i++){
-        $("#showTables").append(`<div class="card" style="width: 18rem;">
+        $("#showTables").append(`<div class="card resCard" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${data[i].name}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${data[i].phoneNumber}</h6>
@@ -52,7 +52,7 @@
     $.get("/api/waitlist")
     .then(function(data){
       for (var i=0;i<data.length;i++){
-        $("#showWaitlist").append(`<div class="card" style="width: 18rem;">
+        $("#showWaitlist").append(`<div class="card waitCard" style="width: 18rem;">
   <div class="card-body">
     <h5 class="card-title">${data[i].name}</h5>
     <h6 class="card-subtitle mb-2 text-muted">${data[i].phoneNumber}</h6>

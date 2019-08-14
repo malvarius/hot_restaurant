@@ -52,7 +52,7 @@ app.get("/api/waitlist", function(req, res) {
   return res.json(waitlist);
 });
 app.post("/api/tables",function(req,res){
-  if (reservations.length<5){
+  if (reservations.length<4){
   reservations.push(req.body);
   }else{
     waitlist.push(req.body);
