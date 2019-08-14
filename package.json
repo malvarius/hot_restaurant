@@ -7,11 +7,18 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/malvarius/hot_restaurant.git"
+  },
   "keywords": [],
   "author": "",
   "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/malvarius/hot_restaurant/issues"
+  },
+  "homepage": "https://github.com/malvarius/hot_restaurant#readme",
   "dependencies": {
-    "express": "^4.17.1",
-    "path": "^0.12.7"
+    "express": "^4.17.1"
   }
 }
