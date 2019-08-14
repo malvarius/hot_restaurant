@@ -8,10 +8,8 @@
     <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous" />
     <link rel="stylesheet" type="text/css" href="./assets/css/style.css">
-    <script
-  src="https://code.jquery.com/jquery-3.4.1.js"
-  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-  crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
     <title>Reservation Page</title>
 </head>
 
@@ -19,65 +17,61 @@
     <div class="container">
         <div class="jumbotron">
             <h1 class="display-4">Hot Restaurant</h1>
-            <p class="lead">This is a simple hero unit, a simple jumbotron-style component for calling extra attention
-                to featured content or information.</p>
+            <p class="lead">Enter your information to reseve a table!</p>
             <hr class="my-4">
             <a class="btn btn-primary btn-lg" href="/tables" role="button">View Tables</a><a
                 class="btn btn-primary btn-lg" href="/home" role="button">Home</a>
         </div>
 
-
         <div class="row">
             <form>
                 <div class="form-row">
-                    <div class="col-md-6">
-                        <input type="text" id="form-name" class="form-control reserve-form-field" placeholder="Name" />
+                    <div class="form-group col-md-6">
+                        <label for="inputName">Name</label>
+                        <input type="text" id="form-name" class="form-control" id="inputName" placeholder="Name">
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" id="form-phone" class="form-control reserve-form-field"
-                            placeholder="Phone" />
+                    <div class="form-group col-md-6">
+                        <label for="inputEmail">Email</label>
+                        <input type="email" id="form-email" class="form-control" id="inputEmail"
+                            placeholder="email">
                     </div>
                 </div>
                 <div class="form-row">
-                    <div class="col-md-6">
-                        <input type="email" id="form-email" class="form-control reserve-form-field"
-                            placeholder="Email" />
+                    <div class="form-group col-md-6">
+                        <label for="inputPhone">Phone</label>
+                        <input type="text" id="form-phone" class="form-control" id="inputPhone" placeholder="Phone">
                     </div>
-                    <div class="col-md-6">
-                        <input type="text" id="form-unique-id" class="form-control reserve-form-field"
-                            placeholder="Unique ID" />
+                    <div class="form-group col-md-6">
+                        <label for="inputUniqueId">Unique ID</label>
+                        <input type="text" id="form-unique-id" class="form-control" id="inputUniqueId"
+                            placeholder="Unique ID">
                     </div>
                 </div>
+                <button type="submit" id="form-submit" class="btn btn-primary">Submit</button>
             </form>
         </div>
-        <div class="row">
-            <div class="col-auto my-1">
-                <button type="submit" id="form-submit" class="btn btn-primary">Submit</button>
-            </div>
-        </div>
-    </div>
     </div>
 </body>
 <script src="./server.js"></script>
 <script>
-$('#form-submit').on('click',function(){
-var name1 = $('#form-name').val()
-var phone1 = $('#form-phone').val()
-var email1 = $('#form-email').val()
-var uniqueId1 = $('#form-unique-id').val()
+    $('#form-submit').on('click', function () {
+        var name1 = $('#form-name').val()
+        var phone1 = $('#form-phone').val()
+        var email1 = $('#form-email').val()
+        var uniqueId1 = $('#form-unique-id').val()
 
-var currentReservation = {
-    name : name1,
-    phoneNumber:phone1,
-    email:email1,
-    uniqueId:uniqueId1
-}
+        var currentReservation = {
+            name: name1,
+            phoneNumber: phone1,
+            email: email1,
+            uniqueId: uniqueId1
+        }
 
-$.post("/api/tables",currentReservation)
-.then(function(data) {
-        console.log('Reservation Made');
-        });
-});
+        $.post("/api/tables", currentReservation)
+            .then(function (data) {
+                console.log('Reservation Made');
+            });
+    });
 
 
 </script>
